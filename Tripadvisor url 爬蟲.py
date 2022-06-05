@@ -7,6 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import json
+import os
 
 def url_list(brand):
     brand_URL = [] #標題網址
@@ -25,7 +26,8 @@ def url_list(brand):
     return brand_URL
 
 if __name__=='__main__':
-    driver = webdriver.Chrome('/Users/hsuan/desktop/chromedriver') 
+    chrome_path = os.path.abspath('chromedriver') 
+    driver = webdriver.Chrome(chrome_path) 
     driver.get('https://www.google.com.tw/?hl=zh_TW')
     ni = url_list('夏慕尼')  # 13筆正常
     mini = url_list('12MINI') # 3 筆
